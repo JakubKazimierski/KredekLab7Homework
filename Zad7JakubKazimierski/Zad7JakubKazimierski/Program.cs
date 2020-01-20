@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace ZadDomLab7
+namespace Zad7JakubKazimierski
 {
     public class Program
     {

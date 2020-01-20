@@ -1,6 +1,6 @@
 using System;
 
-namespace ZadDomLab7
+namespace Zad7JakubKazimierski
 {
     public class WeatherForecast
     {
