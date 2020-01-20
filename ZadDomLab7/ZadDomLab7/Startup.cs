@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using ZadDomLab7.Models;
 
 namespace ZadDomLab7
 {
@@ -26,6 +28,8 @@ namespace ZadDomLab7
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            string ConnectionString = @"Server=DESKTOP-VQUFE5J; Database=ZadDom7; Trusted_Connection = true;  ConnectionRetryCount = 0";
+            services.AddDbContext<VehiclesDbContext>(options=>options.UseSqlServer(ConnectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
