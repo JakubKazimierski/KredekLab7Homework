@@ -11,6 +11,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Zad7JakubKazimierski.Models;
 using Microsoft.EntityFrameworkCore;
+using Zad7JakubKazimierski.Models.ServiceManager;
+using Zad7JakubKazimierski.Models.Services;
 
 namespace Zad7JakubKazimierski
 {
@@ -27,6 +29,8 @@ namespace Zad7JakubKazimierski
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<VehicleContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:VehiclesDB"]));
+            services.AddScoped<IDataService<Car>, CarManager>();
+            services.AddScoped<IDataService<MotorBike>, MBikeManager>();
             services.AddControllers();
         }
 
