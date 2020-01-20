@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Zad7JakubKazimierski.Models
 {
+    //Model of table in DataBase, used for entity framework
     public class MotorBike
     {
         [Key]

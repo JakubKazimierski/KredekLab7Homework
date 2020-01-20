@@ -8,17 +8,22 @@ using Zad7JakubKazimierski.Models.Services;
 
 namespace Zad7JakubKazimierski.Controllers
 {
+    //controller for car Table in data base
     [ApiController]
     [Route("api/carcontroller")]
    public class CarController : ControllerBase
     {
         private readonly IDataService<Car> _carService;
-
+        //using dependency injection
         public CarController(IDataService<Car> carService)
         { 
             _carService = carService;
         }
 
+        /// <summary>
+        /// get request
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -26,6 +31,11 @@ namespace Zad7JakubKazimierski.Controllers
             return Ok(cars);
         }
 
+        /// <summary>
+        /// get by id request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -40,6 +50,11 @@ namespace Zad7JakubKazimierski.Controllers
 
         }
 
+        /// <summary>
+        /// post request
+        /// </summary>
+        /// <param name="car"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] Car car)
         {
@@ -52,6 +67,12 @@ namespace Zad7JakubKazimierski.Controllers
             return CreatedAtRoute("Get", new { Id = car.CarId }, car);
         }
 
+        /// <summary>
+        /// put request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="car"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] Car car)
         { 
@@ -73,6 +94,11 @@ namespace Zad7JakubKazimierski.Controllers
 
         }
 
+        /// <summary>
+        /// delete request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

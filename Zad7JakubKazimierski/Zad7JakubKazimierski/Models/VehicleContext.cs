@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zad7JakubKazimierski.Models
 {
+    //Database context
     public class VehicleContext : DbContext
     {
         public VehicleContext(DbContextOptions options)

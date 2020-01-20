@@ -6,6 +6,8 @@ using Zad7JakubKazimierski.Models.Services;
 
 namespace Zad7JakubKazimierski.Models.ServiceManager
 {
+    //class overriding interface with methods get, add, update, delete
+    //used as service and changing data in Database
     public class MBikeManager : IDataService<MotorBike>
     {
         readonly VehicleContext _mBikeContext;

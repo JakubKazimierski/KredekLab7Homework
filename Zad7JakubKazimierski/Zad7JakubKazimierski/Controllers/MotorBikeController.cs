@@ -8,17 +8,22 @@ using Zad7JakubKazimierski.Models.Services;
 
 namespace Zad7JakubKazimierski.Controllers
 {
+    //controller for Motorbike Table in DataBase
     [ApiController]
     [Route("api/motorbikecontroller")]
     public class MotorBikeController : ControllerBase
     {
         private readonly IDataService<MotorBike> _motoService;
-
+        //using dependecy injection
         public MotorBikeController(IDataService<MotorBike> motoService)
         {
             _motoService = motoService;
         }
 
+        /// <summary>
+        /// get request
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -26,6 +31,11 @@ namespace Zad7JakubKazimierski.Controllers
             return Ok(motors);
         }
 
+        /// <summary>
+        /// get by id request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -40,6 +50,11 @@ namespace Zad7JakubKazimierski.Controllers
 
         }
 
+        /// <summary>
+        /// post request
+        /// </summary>
+        /// <param name="motor"></param>
+        /// <returns></returns>
         [HttpPost]
         public IActionResult Post([FromBody] MotorBike motor)
         {
@@ -52,6 +67,12 @@ namespace Zad7JakubKazimierski.Controllers
             return CreatedAtRoute("Get", new { Id = motor.MBikeId }, motor);
         }
 
+        /// <summary>
+        /// put request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="motor"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] MotorBike motor)
         {
@@ -73,6 +94,11 @@ namespace Zad7JakubKazimierski.Controllers
 
         }
 
+        /// <summary>
+        /// delete request
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

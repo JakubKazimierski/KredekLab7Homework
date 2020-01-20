@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace Zad7JakubKazimierski.Models.Services
 {
+    //Service manager interface with methods get, add, update, delete
   public  interface IDataService<TEntity>
     {
         IEnumerable<TEntity> GetAll();
