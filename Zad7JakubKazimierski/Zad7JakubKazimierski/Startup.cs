@@ -9,6 +9,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Zad7JakubKazimierski.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Zad7JakubKazimierski
 {
@@ -24,6 +26,7 @@ namespace Zad7JakubKazimierski
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<VehicleContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:VehiclesDB"]));
             services.AddControllers();
         }
 
