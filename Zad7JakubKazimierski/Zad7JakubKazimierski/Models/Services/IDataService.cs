@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Zad7JakubKazimierski.Models.Services
 {
-    interface IDataService<TEntity>
+  public  interface IDataService<TEntity>
     {
         IEnumerable<TEntity> GetAll();
         TEntity Get(int id);

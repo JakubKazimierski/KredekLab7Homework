@@ -9,12 +9,12 @@ using Zad7JakubKazimierski.Models.Services;
 namespace Zad7JakubKazimierski.Controllers
 {
     [ApiController]
-    [Route("[api/moto]")]
+    [Route("api/motorbikecontroller")]
     public class MotorBikeController : ControllerBase
     {
         private readonly IDataService<MotorBike> _motoService;
 
-        private MotorBikeController(IDataService<MotorBike> motoService)
+        public MotorBikeController(IDataService<MotorBike> motoService)
         {
             _motoService = motoService;
         }
@@ -26,7 +26,7 @@ namespace Zad7JakubKazimierski.Controllers
             return Ok(motors);
         }
 
-        [HttpGet("{id}", Name = "Get")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             MotorBike motor = _motoService.Get(id);
