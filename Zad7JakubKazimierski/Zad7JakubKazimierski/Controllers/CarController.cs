@@ -79,7 +79,7 @@ namespace Zad7JakubKazimierski.Controllers
             Car car = _carService.Get(id);
             if(car == null)
             {
-                return NotFound("The Employee record couldn't be found");
+                return NotFound("The car record couldn't be found");
             }
 
             _carService.Delete(car);
