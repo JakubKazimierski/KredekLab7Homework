@@ -1,0 +1,3 @@
+For creating test units i choosed Laboratory number 2, each class
+used for creating objects in game, has it own tests.
+Testing was for get and set methods, and construcotr.

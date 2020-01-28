@@ -13,6 +13,8 @@ using Zad7JakubKazimierski.Models;
 using Microsoft.EntityFrameworkCore;
 using Zad7JakubKazimierski.Models.ServiceManager;
 using Zad7JakubKazimierski.Models.Services;
+using Swashbuckle.AspNetCore.Swagger;
+using Swashbuckle.Swagger;
 
 namespace Zad7JakubKazimierski
 {
@@ -31,10 +33,12 @@ namespace Zad7JakubKazimierski
             //for connection with database
             services.AddDbContext<VehicleContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:VehiclesDB"]));
             //for dependency injection
-            services.AddScoped<IDataService<Car>, CarManager>(); 
+            services.AddScoped<IDataService<Car>, CarManager>();
             //for dependency injection
             services.AddScoped<IDataService<MotorBike>, MBikeManager>();
             services.AddControllers();
+
+           
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -45,6 +49,8 @@ namespace Zad7JakubKazimierski
                 app.UseDeveloperExceptionPage();
             }
 
+
+
             app.UseRouting();
 
             app.UseAuthorization();
@@ -53,6 +59,7 @@ namespace Zad7JakubKazimierski
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }
